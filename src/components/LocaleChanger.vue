@@ -13,12 +13,12 @@ watch(locale, (newLocale) => {
 	<div class="locales">
 		<select v-model="locale">
 			<option
-					v-for="locale in availableLocales"
-					:key="locale"
-					:value="locale"
+					v-for="currLocale in availableLocales"
+					:key="currLocale"
+					:value="currLocale"
 					class="locale"
 			>
-				{{ locale }}
+				{{ currLocale }}
 			</option>
 		</select>
 	</div>
