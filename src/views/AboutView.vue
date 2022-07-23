@@ -1,7 +1,7 @@
 <template>
-<h3>About</h3>
+	<h3>About</h3>
 </template>
 
-<script></script>
+<script setup lang="ts"></script>
 
-<style></style>
+<style scoped lang="scss"></style>

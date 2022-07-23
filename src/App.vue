@@ -5,8 +5,10 @@ import AppHeader from "@/components/AppHeader.vue";
 <template>
 	<AppHeader />
 	<router-view />
+
+	<p>TEST</p>
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+// MAIN STYLES DONT SCOPED!!
 </style>

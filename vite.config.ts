@@ -7,7 +7,10 @@ import { fileURLToPath, URL } from "url";
 export default defineConfig({
 	plugins: [
 		vue(),
-		WindiCSS()
+		WindiCSS({
+			preflight: true,
+			sortUtilities: true,
+		})
 	],
 
 	resolve: {

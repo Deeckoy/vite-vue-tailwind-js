@@ -1,7 +1,25 @@
 @import "utils/variables";
+@import "utils/fonts";
 
-body {
+:root {
+	font-size: 10px;
+}
+
+#app {
 	font-family: $mainFontFamily;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+button, input {
+	font-family: $mainFontFamily;
 }
