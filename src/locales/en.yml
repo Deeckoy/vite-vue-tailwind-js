@@ -1,0 +1,4 @@
+hello: "Hello"
+home:
+  page: "Home"
+  explanation: "It's a home page!"
