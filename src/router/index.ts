@@ -1,16 +1,16 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/HomeView.vue";
+import About from "../views/AboutView.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     component: About,
     //https://next.router.vuejs.org/guide/advanced/lazy-loading.html
   },
