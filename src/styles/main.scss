@@ -1,10 +1,6 @@
 @import "utils/variables";
 @import "utils/fonts";
 
-:root {
-	font-size: 10px;
-}
-
 #app {
 	font-family: $mainFontFamily;
 	-webkit-font-smoothing: subpixel-antialiased;
