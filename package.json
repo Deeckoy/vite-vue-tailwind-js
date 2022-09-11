@@ -1,7 +1,7 @@
 {
 	"name": "vite-project",
 	"version": "0.0.0",
-	"type": "module",
+	"type": "commonjs",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development vite --port 4000",
 		"build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build",
