@@ -2,6 +2,10 @@
 	<h3>About</h3>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="js">
+export default {
+	name: "AboutView",
+}
+</script>
 
 <style scoped lang="scss"></style>

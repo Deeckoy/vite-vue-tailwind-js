@@ -9,6 +9,10 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="js">
+export default {
+	name: "NotFoundView",
+}
+</script>
 
 <style scoped lang="scss"></style>

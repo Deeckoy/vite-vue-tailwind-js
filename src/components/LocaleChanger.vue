@@ -13,20 +13,30 @@
 	</div>
 </template>
 
-<script setup lang="ts">
-import { watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+<script lang="js">
+import { watch } from "vue"
+import { useI18n } from "vue-i18n"
 
-const { availableLocales, locale } = useI18n()
-var selectedLocale
+export default {
+	name: "LocaleChanger",
 
-watch(locale, (newLocale) => {
-	if (newLocale) {
-		localStorage.locale = newLocale
-	}
+	setup() {
+		const { availableLocales, locale } = useI18n()
 
-	this.selectedLocale = localStorage.locale
-})
+		watch(locale, (newLocale) => {
+			if (newLocale) {
+				localStorage.locale = newLocale
+			}
+
+			return { selectedLocale: localStorage.locale }
+		})
+
+		return {
+			availableLocales,
+			locale,
+		}
+	},
+}
 </script>
 
 <style scoped lang="scss"></style>

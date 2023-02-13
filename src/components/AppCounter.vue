@@ -8,8 +8,14 @@
 	</button>
 </template>
 
-<script setup lang="ts">
-import { useCounterStore } from '@/stores/counter'
+<script lang="js">
+import { useCounterStore } from "@/stores/counter"
 
-const store = useCounterStore()
+export default {
+	name: "AppCounter",
+	setup() {
+		const store = useCounterStore()
+		return { store }
+	},
+}
 </script>

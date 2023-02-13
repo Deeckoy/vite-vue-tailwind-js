@@ -31,6 +31,10 @@
 	</header>
 </template>
 
-<script></script>
+<script lang="js">
+export default {
+	name: "AppHeader",
+}
+</script>
 
-<style></style>
+<style lang="scss" scoped></style>

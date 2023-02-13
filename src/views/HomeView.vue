@@ -7,8 +7,15 @@
 	<Counter />
 </template>
 
-<script setup lang="ts">
-import Counter from '@/components/AppCounter.vue'
+<script lang="js">
+import Counter from "@/components/AppCounter.vue"
+
+export default {
+	name: "HomeView",
+	components: {
+		Counter,
+	},
+}
 </script>
 
 <style scoped lang="scss"></style>

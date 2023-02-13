@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '@/views/HomeView.vue'
-import About from '@/views/AboutView.vue'
+const About = () => import('@/views/AboutView.vue')
 import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
@@ -94,10 +94,8 @@ router.beforeEach((to, from, next) => {
 	 * If a route with a title was found, set the document (page) title to that value.
 	 */
 	if (nearestWithTitle) {
-		// @ts-ignore
 		document.title = nearestWithTitle.meta.title
 	} else if (previousNearestWithMeta) {
-		// @ts-ignore
 		document.title = previousNearestWithMeta.meta.title
 	}
 
@@ -105,7 +103,6 @@ router.beforeEach((to, from, next) => {
 	 * Remove any stale meta tags from the document using the key attribute we set below.
 	 */
 	Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map((el) => {
-		// @ts-ignore
 		return el.parentNode.removeChild(el)
 	})
 
@@ -117,7 +114,6 @@ router.beforeEach((to, from, next) => {
 	/**
 	 * Turn the meta tag definitions into actual elements in the head.
 	 */
-	// @ts-ignore
 	nearestWithMeta.meta.metaTags
 		.map((tagDef) => {
 			const tag = document.createElement('meta')
@@ -136,7 +132,6 @@ router.beforeEach((to, from, next) => {
 		/**
 		 * Add the meta tags to the document head.
 		 */
-		// @ts-ignore
 		.forEach((tag) => document.head.appendChild(tag))
 
 	next()

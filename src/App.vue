@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import AppHeader from '@/components/App/AppHeader.vue'
-import LocaleChanger from '@/components/LocaleChanger.vue'
-</script>
-
 <template>
 	<AppHeader />
 	<router-view />
@@ -11,6 +6,19 @@ import LocaleChanger from '@/components/LocaleChanger.vue'
 
 	<locale-changer />
 </template>
+
+<script lang="js">
+import AppHeader from "@/components/App/AppHeader.vue"
+import LocaleChanger from "@/components/LocaleChanger.vue"
+
+export default {
+	name: "App",
+	components: {
+		AppHeader,
+		LocaleChanger,
+	},
+}
+</script>
 
 <style lang="scss">
 // MAIN STYLES DONT SCOPED!!
