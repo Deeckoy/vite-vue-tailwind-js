@@ -1,67 +1,67 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHistory } from 'vue-router'
 
-import Home from "@/views/HomeView.vue"
-import About from "@/views/AboutView.vue"
-import NotFoundView from "@/views/NotFoundView.vue"
+import Home from '@/views/HomeView.vue'
+import About from '@/views/AboutView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
 	{
-		path: "/",
-		name: "Home",
+		path: '/',
+		name: 'Home',
 		component: Home,
 		meta: {
-			title: "Home page",
+			title: 'Home page',
 			metaTags: [
 				{
-					charset: "UTF-8",
+					charset: 'UTF-8',
 				},
 				{
-					name: "viewport",
-					content: "width=device-width, initial-scale=1, maximum-scale=5"
+					name: 'viewport',
+					content: 'width=device-width, initial-scale=1, maximum-scale=5',
 				},
 				{
-					name: "description",
-					content: "Base vite boilerplate"
+					name: 'description',
+					content: 'Base vite boilerplate',
 				},
 				{
-					name: "keywords",
-					content: "Vite, Vue3, VueJS, WindiCSS, EsBuild"
+					name: 'keywords',
+					content: 'Vite, Vue3, VueJS, WindiCSS, EsBuild',
 				},
 				{
-					name: "author",
-					content: "Edward Haussauer"
+					name: 'author',
+					content: 'Edward Haussauer',
 				},
 				{
-					name: "twitter:card",
-					content: "summary"
+					name: 'twitter:card',
+					content: 'summary',
 				},
 				{
-					name: "og:type",
-					content: "website"
-				}
-			]
-		}
+					name: 'og:type',
+					content: 'website',
+				},
+			],
+		},
 	},
 	{
-		path: "/about",
-		name: "About",
+		path: '/about',
+		name: 'About',
 		component: About,
 		// https://next.router.vuejs.org/guide/advanced/lazy-loading.html
 		meta: {
-			title: "About page"
-		}
+			title: 'About page',
+		},
 	},
 	{
-		path: "/:pathMatch(.*)*",
-		name: "NOT_FOUND",
+		path: '/:pathMatch(.*)*',
+		name: 'NOT_FOUND',
 		component: NotFoundView,
 	},
-];
+]
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
-});
+})
 
 /**
  * This callback runs before every route change, including on page load.
@@ -72,64 +72,74 @@ router.beforeEach((to, from, next) => {
 	 * e.g., if we have `/some/deep/nested/route` and `/some`, `/deep`, and `/nested` have titles,
 	 * `/nested`'s will be chosen.
 	 */
-	const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
+	const nearestWithTitle = to.matched
+		.slice()
+		.reverse()
+		.find((r) => r.meta && r.meta.title)
 
 	/**
 	 * Find the nearest route element with meta tags.
 	 */
-	const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+	const nearestWithMeta = to.matched
+		.slice()
+		.reverse()
+		.find((r) => r.meta && r.meta.metaTags)
 
-	const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+	const previousNearestWithMeta = from.matched
+		.slice()
+		.reverse()
+		.find((r) => r.meta && r.meta.metaTags)
 
 	/**
 	 * If a route with a title was found, set the document (page) title to that value.
 	 */
 	if (nearestWithTitle) {
 		// @ts-ignore
-		document.title = nearestWithTitle.meta.title;
+		document.title = nearestWithTitle.meta.title
 	} else if (previousNearestWithMeta) {
 		// @ts-ignore
-		document.title = previousNearestWithMeta.meta.title;
+		document.title = previousNearestWithMeta.meta.title
 	}
 
 	/**
 	 * Remove any stale meta tags from the document using the key attribute we set below.
 	 */
-	Array.from(document.querySelectorAll("[data-vue-router-controlled]")).map(el => {
+	Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map((el) => {
 		// @ts-ignore
-		return el.parentNode.removeChild(el);
-	});
+		return el.parentNode.removeChild(el)
+	})
 
 	/**
 	 * Skip rendering meta tags if there are none.
 	 */
-	if (!nearestWithMeta) return next();
+	if (!nearestWithMeta) return next()
 
 	/**
 	 * Turn the meta tag definitions into actual elements in the head.
 	 */
 	// @ts-ignore
-	nearestWithMeta.meta.metaTags.map(tagDef => {
-		const tag = document.createElement("meta");
+	nearestWithMeta.meta.metaTags
+		.map((tagDef) => {
+			const tag = document.createElement('meta')
 
-		Object.keys(tagDef).forEach(key => {
-			tag.setAttribute(key, tagDef[key]);
-		});
+			Object.keys(tagDef).forEach((key) => {
+				tag.setAttribute(key, tagDef[key])
+			})
 
-		/**
-		 * We use this to track which meta tags we create so we don't interfere with other ones.
-		 */
-		tag.setAttribute("data-vue-router-controlled", "");
-
-		return tag;
-	})
 			/**
-			 * Add the meta tags to the document head.
+			 * We use this to track which meta tags we create so we don't interfere with other ones.
 			 */
-			// @ts-ignore
-			.forEach(tag => document.head.appendChild(tag));
+			tag.setAttribute('data-vue-router-controlled', '')
 
-	next();
-});
+			return tag
+		})
+		/**
+		 * Add the meta tags to the document head.
+		 */
+		// @ts-ignore
+		.forEach((tag) => document.head.appendChild(tag))
 
-export default router;
+	next()
+})
+
+export default router

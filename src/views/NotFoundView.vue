@@ -1,8 +1,6 @@
 <template>
 	<div class="text-center">
-		<h1 class="text-10xl font-bold">
-			404
-		</h1>
+		<h1 class="text-10xl font-bold">404</h1>
 
 		<p class="text-md">
 			Page not found.
@@ -11,10 +9,6 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

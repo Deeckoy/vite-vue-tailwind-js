@@ -8,6 +8,7 @@
 		"preview": "vite preview",
 		"lint": "eslint --ext .vue --ext .ts --ext .js ./src/",
 		"lint:fix": "eslint --ext .vue --ext .ts --ext .js ./src/ --fix",
+		"format": "prettier --write ./src/**/*.{js,ts,vue,scss,css,html,json} && prettier --write ./index.html",
 		"analysis": "windicss-analysis"
 	},
 	"dependencies": {

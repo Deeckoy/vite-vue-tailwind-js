@@ -21,8 +21,11 @@ const { availableLocales, locale } = useI18n()
 var selectedLocale
 
 watch(locale, (newLocale) => {
-	if (newLocale) localStorage.locale = newLocale
-	selectedLocale = localStorage.locale
+	if (newLocale) {
+		localStorage.locale = newLocale
+	}
+
+	this.selectedLocale = localStorage.locale
 })
 </script>
 
